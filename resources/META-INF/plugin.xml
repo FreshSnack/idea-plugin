@@ -23,9 +23,15 @@
   <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
   -->
+  <project-components>
+    <component>
+      <implementation-class>com.amar.component.MyProjectComponent</implementation-class>
+    </component>
+  </project-components>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+    <applicationService serviceInterface="com.amar.service.CounterService" serviceImplementation="com.amar.service.CounterServiceImpl"/>
   </extensions>
 
   <actions>
