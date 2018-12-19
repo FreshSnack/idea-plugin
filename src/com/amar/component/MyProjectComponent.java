@@ -17,6 +17,7 @@ public class MyProjectComponent implements ProjectComponent {
     @Override
     public void projectOpened() {
         CounterService commandCounter = ServiceManager.getService(CounterService.class);
+        System.out.println("[counterService]" + commandCounter.hashCode());
         if (commandCounter.increaseCounter() == -1) {
             StringBuilder sb = (new StringBuilder()).append("The maximum number of opened projects exceeds ");
             Messages.showMessageDialog(sb.append(String.valueOf(3)).append(" projects!").toString(), "Error", Messages.getErrorIcon());
@@ -30,18 +31,19 @@ public class MyProjectComponent implements ProjectComponent {
     @Override
     public void projectClosed() {
         CounterService commandCounter = ServiceManager.getService(CounterService.class);
+        System.out.println("[counterService]" + commandCounter.hashCode());
         commandCounter.decreaseCounter();
     }
 
     @Override
     public void initComponent() {
-        System.out.println(this.hashCode());
+        System.out.println("[projectComponent]" + this.hashCode());
         System.out.println("myProjectComponent initialize..");
     }
 
     @Override
     public void disposeComponent() {
-        System.out.println(this.hashCode());
+        System.out.println("[projectComponent]" + this.hashCode());
         System.out.println("myProjectComponent dispose..");
     }
 
