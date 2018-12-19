@@ -1,7 +1,8 @@
 package com.amar.component;
 
 import com.amar.service.CounterService;
-import com.intellij.openapi.components.ProjectComponent;
+import com.amar.service.MyProjectService;
+import com.intellij.openapi.components.AbstractProjectComponent;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
@@ -12,10 +13,16 @@ import org.jetbrains.annotations.NotNull;
  * @author dingmx
  * @date 2018/12/19 22:17
  */
-public class MyProjectComponent implements ProjectComponent {
+public class MyProjectComponent extends AbstractProjectComponent {
+
+    protected MyProjectComponent(Project project) {
+        super(project);
+    }
 
     @Override
     public void projectOpened() {
+        MyProjectService projectService = ServiceManager.getService(myProject, MyProjectService.class);
+        System.out.println("[projectService]" + projectService.hashCode());
         CounterService commandCounter = ServiceManager.getService(CounterService.class);
         System.out.println("[counterService]" + commandCounter.hashCode());
         if (commandCounter.increaseCounter() == -1) {
@@ -30,6 +37,8 @@ public class MyProjectComponent implements ProjectComponent {
 
     @Override
     public void projectClosed() {
+        MyProjectService projectService = ServiceManager.getService(myProject, MyProjectService.class);
+        System.out.println("[projectService]" + projectService.hashCode());
         CounterService commandCounter = ServiceManager.getService(CounterService.class);
         System.out.println("[counterService]" + commandCounter.hashCode());
         commandCounter.decreaseCounter();

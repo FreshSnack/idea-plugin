@@ -32,6 +32,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <applicationService serviceInterface="com.amar.service.CounterService" serviceImplementation="com.amar.service.CounterServiceImpl"/>
+    <projectService serviceInterface="com.amar.service.MyProjectService" serviceImplementation="com.amar.service.MyProjectService"/>
   </extensions>
 
   <actions>
