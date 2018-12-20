@@ -18,6 +18,8 @@
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="173.0"/>
 
+  <depends>com.intellij.modules.vcs</depends>
+
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
   <!-- uncomment to enable plugin in all products
@@ -48,6 +50,14 @@
 
   <actions>
     <!-- Add your actions here -->
+    <reference ref="CheckinFiles" >
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+    </reference>
+    <group id="groupId">
+      <reference ref="CheckinFiles"/>
+      <separator/>
+      <add-to-group group-id="WindowMenu" anchor="first"/>
+    </group>
   </actions>
 
 </idea-plugin>
