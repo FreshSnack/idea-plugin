@@ -33,7 +33,7 @@ public class BrowserAction extends AnAction {
             });*/
             Platform.runLater(()->{
                 BrowserService browserService = ServiceManager.getService(e.getProject(), BrowserService.class);
-                WebView webView = browserService.getWebView();
+                WebView webView = new WebView();//browserService.getWebView();
                 Scene scene = new Scene(webView);
                 WebEngine webEngine = webView.getEngine();
                 webEngine.load("http://172.28.1.2:8087/rxtool/login");
