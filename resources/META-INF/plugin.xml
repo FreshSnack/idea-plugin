@@ -46,6 +46,7 @@
     <!-- Add your extensions here -->
     <applicationService serviceInterface="com.amar.service.CounterService" serviceImplementation="com.amar.service.CounterServiceImpl"/>
     <projectService serviceInterface="com.amar.service.MyProjectService" serviceImplementation="com.amar.service.MyProjectService"/>
+    <projectService serviceImplementation="com.amar.service.BrowserService"/>
   </extensions>
 
   <actions>
@@ -58,6 +59,9 @@
       <separator/>
       <add-to-group group-id="WindowMenu" anchor="first"/>
     </group>
+    <action id="browser" class="com.amar.action.BrowserAction" text="Browser" description="popup a browser">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+    </action>
   </actions>
 
 </idea-plugin>
