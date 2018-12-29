@@ -40,11 +40,12 @@ public class BrowserAction extends AnAction {
                 WebView webView = new WebView();//browserService.getWebView();
                 Scene scene = new Scene(webView);
                 WebEngine webEngine = webView.getEngine();
-                webEngine.load("http://172.28.1.2:8087/rxtool/login");
+                //webEngine.load("http://172.28.1.2:8087/rxtool/login");
+                webEngine.load("http://www.baidu.com");
                 jfxPanel.setScene(scene);
             });
-            frame.setLocationRelativeTo(null);
             frame.setSize(1000,800);
+            frame.setLocationRelativeTo(null);
             frame.setVisible(true);
         });
     }
