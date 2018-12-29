@@ -1,9 +1,11 @@
 package com.amar.action;
 
+import com.amar.icon.IconManager;
 import com.amar.service.BrowserService;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.components.ServiceManager;
+import com.intellij.openapi.util.IconLoader;
 import com.sun.javafx.application.PlatformImpl;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -19,6 +21,8 @@ import java.awt.*;
  * @Date: 2018-12-27 16:17
  */
 public class BrowserAction extends AnAction {
+
+    public BrowserAction() { super(IconManager.BROWSER); }
 
     @Override
     public void actionPerformed(AnActionEvent e) {
